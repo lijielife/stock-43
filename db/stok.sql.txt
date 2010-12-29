@@ -1,0 +1,128 @@
+-- phpMyAdmin SQL Dump
+-- version 2.7.0-pl2
+-- http://www.phpmyadmin.net
+-- 
+-- Host: localhost
+-- Generation Time: Dec 29, 2010 at 05:05 PM
+-- Server version: 5.0.18
+-- PHP Version: 5.1.2
+-- 
+-- Database: `stok`
+-- 
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `companies`
+-- 
+
+CREATE TABLE `companies` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(128) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+-- 
+-- Dumping data for table `companies`
+-- 
+
+INSERT INTO `companies` VALUES (1, 'ahmet');
+INSERT INTO `companies` VALUES (2, 'ece');
+INSERT INTO `companies` VALUES (3, 'ferit');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `companies_products`
+-- 
+
+CREATE TABLE `companies_products` (
+  `product_id` int(11) NOT NULL,
+  `company_id` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- 
+-- Dumping data for table `companies_products`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `invoices`
+-- 
+
+CREATE TABLE `invoices` (
+  `id` int(11) NOT NULL auto_increment,
+  `date` datetime NOT NULL,
+  `description` text NOT NULL,
+  `company_id` int(11) NOT NULL,
+  `total` float NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+-- 
+-- Dumping data for table `invoices`
+-- 
+
+INSERT INTO `invoices` VALUES (3, '2010-12-28 17:50:00', 'domates, salatalik, marul, roka', 0, 33);
+INSERT INTO `invoices` VALUES (4, '2010-12-28 17:50:00', 'domates, salatalik', 0, 17);
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `products`
+-- 
+
+CREATE TABLE `products` (
+  `id` int(11) NOT NULL auto_increment,
+  `invoice_id` int(11) NOT NULL,
+  `name` varchar(256) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+-- 
+-- Dumping data for table `products`
+-- 
+
+INSERT INTO `products` VALUES (3, 0, 'marul');
+INSERT INTO `products` VALUES (4, 0, 'roka');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `sales`
+-- 
+
+CREATE TABLE `sales` (
+  `id` int(11) NOT NULL auto_increment,
+  `product_id` int(11) NOT NULL,
+  `invoice_id` int(11) NOT NULL,
+  `price` float NOT NULL,
+  `unit_product` float NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- 
+-- Dumping data for table `sales`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `users`
+-- 
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL auto_increment,
+  `username` varchar(256) NOT NULL,
+  `password` varchar(256) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+
+-- 
+-- Dumping data for table `users`
+-- 
+
+INSERT INTO `users` VALUES (8, 'qwert', 'a8e91ee9bce31da4abf691ed7f86f4c7b2df4f89');
