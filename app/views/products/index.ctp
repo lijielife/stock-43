@@ -45,3 +45,8 @@
 		<li><?php echo $this->Html->link(__('New Product', true), array('action' => 'add')); ?></li>
 	</ul>
 </div>
+<div>
+ <pre>
+    <?php print_r($products); ?>
+ </pre>
+</div>

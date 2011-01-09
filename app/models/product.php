@@ -5,7 +5,7 @@ class Product extends AppModel {
 	var $belongsTo = array(
 		'Invoice' => array(
 			'className' => 'Invoice',
-			'foreignKey' => '',
+			'foreignKey' => 'invoice_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

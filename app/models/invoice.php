@@ -4,7 +4,7 @@ class Invoice extends AppModel {
 	var $hasOne = array(
 		'Product' => array(
 			'className' => 'Product',
-			'foreignKey' => '',
+			'foreignKey' => 'invoice_id',
 			'dependent' => true,
 			'conditions' => '',
 			'fields' => '',
