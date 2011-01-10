@@ -2,7 +2,8 @@
 
 
 
-<a href="http://localhost/stok/users">users</a> <br/>
-<a href="http://localhost/stok/products">products</a> <br/>
-<a href="http://localhost/stok/companies">companies</a> <br/>
-<a href="http://localhost/stok/invoices">invoices</a> <br/>
+<a href="http://localhost/github/stock/users">users</a> <br/>
+<a href="http://localhost/github/stock/products">products</a> <br/>
+<a href="http://localhost/github/stock/companies">companies</a> <br/>
+<a href="http://localhost/github/stock/invoices">invoices</a> <br/>
+<a href="http://localhost/github/stock/sales">sales</a>
