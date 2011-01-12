@@ -14,10 +14,11 @@ class InvoicesController extends AppController {
 	*/
 
 	function view($id = null) {
-		if($id != null){
+		if($id != null) {
 			$this->Invoice->recursive = 1; 
 			$this->set('invoice' , $this->Invoice->findById($id));
-		}else{
+			$this->log($this->Invoice->findById($id), LOG_DEBUG);
+		} else {
 			
 		}
 	}
