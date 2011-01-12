@@ -31,61 +31,6 @@ class User extends AppModel {
 		)		
 	);
 	
-	var $hasMany = array(
-		'Sale' => array(
-			'className' => 'Sale',
-			'foreignKey' => 'user_id',
-			'dependent' => true,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),		
-		'Product' => array(
-			'className' => 'Product',
-			'foreignKey' => 'user_id',
-			'dependent' => true,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),		
-		'Invoice' => array(
-			'className' => 'Invoice',
-			'foreignKey' => 'user_id',
-			'dependent' => true,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
-		'Company' => array(
-			'className' => 'Company',
-			'foreignKey' => 'user_id',
-			'dependent' => true,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		)
-	);
-	
 	function matchPasswords($data){
 		if($data['password'] == $this->data['User']['password_confirmation']){
 			return TRUE;
