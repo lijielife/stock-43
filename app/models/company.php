@@ -17,5 +17,22 @@ class Company extends AppModel {
 			'counterQuery' => ''
 		)
 	);
+	var $hasAndBelongsToMany = array(
+        'Product' => array(
+              'className' => 'Product',
+              'joinTable' => 'companies_products',
+              'foreignKey' => 'company_id',
+              'associationForeignKey' => 'product_id',
+              'unique' => true,
+              'conditions' => '',
+              'fields' => '',
+              'order' => '',
+              'limit' => '',
+              'offset' => '',
+              'finderQuery' => '',
+              'deleteQuery' => '',
+              'insertQuery' => ''
+            )
+    );
 }
 ?>

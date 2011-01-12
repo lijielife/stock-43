@@ -35,7 +35,7 @@ class Invoice extends AppModel {
 			'exclusive' => '',
 			'finderQuery' => '',
 			'counterQuery' => ''
-		),
+		)
 	);
 }
 ?>
