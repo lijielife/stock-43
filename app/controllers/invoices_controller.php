@@ -7,13 +7,19 @@ class InvoicesController extends AppController {
 		$this->Invoice->recursive = 0;
 		$this->set('invoices', $this->paginate());
 	}
+	
+	/*
+	* Edited By Cem 
+	* Displays All the products in an Inovice
+	*/
 
 	function view($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(__('Invalid invoice', true));
-			$this->redirect(array('action' => 'index'));
+		if($id != null){
+			$this->Invoice->recursive = 1; 
+			$this->set('invoice' , $this->Invoice->findById($id));
+		}else{
+			
 		}
-		$this->set('invoice', $this->Invoice->read(null, $id));
 	}
 
 	function add() {
@@ -58,27 +64,5 @@ class InvoicesController extends AppController {
 		$this->Session->setFlash(__('Invoice was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
-	
-	function hasan($id = null){
-		$this->set('invoices', $this->Invoice->find('all'));
-		$this->log($this->Invoice->find('all'), LOG_DEBUG);
-	}
-
-	function tarik($id = null){
-		$this->set('invoices', $this->Invoice->find('all'));
-		$this->log($this->Invoice->find('all'), LOG_DEBUG);
-	}
-	
-	
-/*	function veli($id = null){
-		$sonuc = $this->Invoice->find('all', 2);
-		$this->set('invoices', $sonuc);
-		print_r ($sonuc); 
-	}
-	
-	function tarik($id=null){
-		$this->Invoice->id = 2;
-		print_r ($this->Invoice->field('description'));
-	} */
 }
 ?>
