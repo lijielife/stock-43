@@ -11,6 +11,7 @@ class InvoicesController extends AppController {
 	/*
 	* Edited By Cem 
 	* Displays All the products in an Inovice
+	* $this->Invoice->find('all', array('conditions'=>array('Invoice.id'=>$id)));
 	*/
 
 	function view($id = null) {
