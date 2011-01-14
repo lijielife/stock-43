@@ -9,8 +9,7 @@ class Invoice extends AppModel {
 			'fields' => '',
 			'order' => ''
 		)
-	);
-	
+	);	
 	var $hasOne = array(
 		'Sale' => array (
 			'className' => 'Sale',
@@ -20,22 +19,23 @@ class Invoice extends AppModel {
 			'fields' => '',
 			'order' => ''
 		)
-	);
-	
-	var $hasMany = array(
-		'Product' => array(
-			'className' => 'Product',
-			'foreignKey' => 'invoice_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		)
+	);	
+	var $hasAndBelongsToMany = array(
+        'Product' => array(
+              'className' => 'Product',
+              'joinTable' => 'invoices_products',
+              'foreignKey' => 'invoice_id',
+              'associationForeignKey' => 'product_id',
+              'unique' => true,
+              'conditions' => '',
+              'fields' => '',
+              'order' => '',
+              'limit' => '',
+              'offset' => '',
+              'finderQuery' => '',
+              'deleteQuery' => '',
+              'insertQuery' => ''
+            )
 	);
 }
 ?>

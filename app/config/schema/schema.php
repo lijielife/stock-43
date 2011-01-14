@@ -1,6 +1,6 @@
 <?php 
 /* SVN FILE: $Id$ */
-/* App schema generated on: 2011-01-12 17:01:36 : 1294846236*/
+/* App schema generated on: 2011-01-14 15:01:49 : 1295010709*/
 class AppSchema extends CakeSchema {
 	var $name = 'App';
 
@@ -18,8 +18,8 @@ class AppSchema extends CakeSchema {
 		'tableParameters' => array('charset' => 'latin1', 'collate' => 'latin1_swedish_ci', 'engine' => 'MyISAM')
 	);
 	var $companies_products = array(
-		'product_id' => array('type' => 'integer', 'null' => false, 'key' => 'primary'),
-		'company_id' => array('type' => 'integer', 'null' => false),
+		'product_id' => array('type' => 'integer', 'null' => false),
+		'company_id' => array('type' => 'integer', 'null' => false, 'key' => 'primary'),
 		'indexes' => array(),
 		'tableParameters' => array('charset' => 'latin1', 'collate' => 'latin1_swedish_ci', 'engine' => 'MyISAM')
 	);
@@ -32,9 +32,14 @@ class AppSchema extends CakeSchema {
 		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1)),
 		'tableParameters' => array('charset' => 'latin1', 'collate' => 'latin1_swedish_ci', 'engine' => 'MyISAM')
 	);
+	var $invoices_products = array(
+		'invoice_id' => array('type' => 'integer', 'null' => false, 'key' => 'primary'),
+		'product_id' => array('type' => 'integer', 'null' => false),
+		'indexes' => array(),
+		'tableParameters' => array('charset' => 'latin1', 'collate' => 'latin1_swedish_ci', 'engine' => 'MyISAM')
+	);
 	var $products = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'key' => 'primary'),
-		'invoice_id' => array('type' => 'integer', 'null' => false),
 		'name' => array('type' => 'string', 'null' => false, 'length' => 256, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
 		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1)),
 		'tableParameters' => array('charset' => 'latin1', 'collate' => 'latin1_swedish_ci', 'engine' => 'MyISAM')

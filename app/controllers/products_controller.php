@@ -8,12 +8,16 @@ class ProductsController extends AppController {
 		$this->set('products', $this->paginate());
 	}
 
+	// $this->Product->find('all', array('conditions'=>array('Product.id'=>$id)));
+	
 	function view($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(__('Invalid product', true));
-			$this->redirect(array('action' => 'index'));
+		if($id != null) {
+			$this->Product->recursive = 1; 
+			$this->set('product' , $this->Product->findById($id));
+			$this->log($this->Product->findById($id), LOG_DEBUG);
+		} else {
+			
 		}
-		$this->set('product', $this->Product->read(null, $id));
 	}
 
 	function add() {

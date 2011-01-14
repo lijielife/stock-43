@@ -7,13 +7,17 @@ class CompaniesController extends AppController {
 		$this->Company->recursive = 0;
 		$this->set('companies', $this->paginate());
 	}
+	
+	// $this->Company->find('all', array('conditions'=>array('Company.id'=>$id)));
 
 	function view($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(__('Invalid company', true));
-			$this->redirect(array('action' => 'index'));
+		if($id != null) {
+			$this->Company->recursive = 1; 
+			$this->set('company' , $this->Company->findById($id));
+			$this->log($this->Company->findById($id), LOG_DEBUG);
+		} else {
+			
 		}
-		$this->set('company', $this->Company->read(null, $id));
 	}
 
 	function add() {
