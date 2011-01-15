@@ -1,16 +1,24 @@
+<div class="view">
 <h2> view smth. </h2>
-<table>
-  <tr>
-    <th>id</th>
-    <th>company name</th>
-    <th>product</th>
-  </tr>
-  		 <!-- for $invoice['Product'] arrays each element as $p -->
-  <tr>
-    <td><?php echo $invoice['Invoice']['id']; ?></td>
-    <td><?php echo $invoice['Company']['name']; ?></td>
-    <?php foreach ($invoice['Product'] as $p): ?>
-    <td><?php echo $p['name']; ?></td>
-  	<?php endforeach;?>
-  </tr>
-</table>
+	<dl>
+		<dt>Id</dt>
+		<dd><?php echo $invoice['Invoice']['id']; ?>
+		</dd>
+		<dt>Date</dt>
+		<dd><?php echo $invoice['Invoice']['date']; ?>
+		</dd>
+		<dt>Description</dt>
+		<dd><?php echo $invoice['Invoice']['description']; ?>
+		</dd>
+		<dt>Company</dt>
+		<dd><?php echo $invoice['Company']['name']; ?>
+		</dd>
+		<dt>Product</dt>
+		<dd>
+		<?php foreach ($invoice['Product'] as $p): ?>
+		<?php echo $p['name'] . "," ;?>
+		<?php endforeach;?>
+			&nbsp;
+		</dd>
+	</dl>
+</div>
