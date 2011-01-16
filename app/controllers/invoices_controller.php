@@ -67,10 +67,16 @@ class InvoicesController extends AppController {
 		$this->redirect(array('action' => 'index'));
 	}
 	
-	function sum($id = null){
+	function __sum($data){
 		$this->Invoice->recursive = -1;
-		$this->set('book', $this->Invoice->find('all'));
-		$this->log($this->Invoice->find('all'), LOG_DEBUG);
+			$sm = 0;
+			foreach($data as $d){
+				$sm += $d['Invoice']['total'];
+			}
+			return $sm;
+		$this->set('found_id');
+		$this->set('book', $this->__sum($this->Invoice->find('all' , array('conditions'=>array('company_id' => $found_id)))));
+		$this->log($this->__sum($this->Invoice->find('all' , array('conditions'=>array('company_id' => $found_id)))), LOG_DEBUG);
 	}
 }
 ?>
