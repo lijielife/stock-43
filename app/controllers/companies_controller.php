@@ -62,5 +62,16 @@ class CompaniesController extends AppController {
 		$this->Session->setFlash(__('Company was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
+
+	function __sum($data){
+		$this->Invoice->recursive = 1;
+			$sm = 0;
+			foreach($data as $d){
+				$sm += $d['Invoice']['total'];
+			}
+			return $sm;
+		$this->set('book', $this->__sum($this->Company->find('all')));
+		$this->log($this->__sum($this->Company->find('all')), LOG_DEBUG);
+	}
 }
 ?>

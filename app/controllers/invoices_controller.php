@@ -66,17 +66,5 @@ class InvoicesController extends AppController {
 		$this->Session->setFlash(__('Invoice was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
-	
-	function __sum($data){
-		$this->Invoice->recursive = -1;
-			$sm = 0;
-			foreach($data as $d){
-				$sm += $d['Invoice']['total'];
-			}
-			return $sm;
-		$this->set('found_id');
-		$this->set('book', $this->__sum($this->Invoice->find('all' , array('conditions'=>array('company_id' => $found_id)))));
-		$this->log($this->__sum($this->Invoice->find('all' , array('conditions'=>array('company_id' => $found_id)))), LOG_DEBUG);
-	}
 }
 ?>
