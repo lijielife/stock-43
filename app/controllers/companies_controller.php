@@ -66,7 +66,6 @@ class CompaniesController extends AppController {
 	}
 
 	function __sum($data){
-		$this->Invoice->recursive = 1;
 			$sm = 0;
 			foreach($data as $d){
 				$sm += $d['total'];
