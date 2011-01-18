@@ -12,9 +12,11 @@ class CompaniesController extends AppController {
 
 	function view($id = null) {
 		if($id != null) {
+			//Set the company data 
+			$comp_dat = $this->Company->findById($id);
 			$this->Company->recursive = 1; 
-			$this->set('company' , $this->Company->findById($id));
-			$this->log($this->Company->findById($id), LOG_DEBUG);
+			$this->set('company' , $comp_dat);
+			$this->set('sum' , $this->__sum($comp_dat["Invoice"]));
 		} else {
 			
 		}
@@ -67,11 +69,9 @@ class CompaniesController extends AppController {
 		$this->Invoice->recursive = 1;
 			$sm = 0;
 			foreach($data as $d){
-				$sm += $d['Invoice']['total'];
+				$sm += $d['total'];
 			}
 			return $sm;
-		$this->set('book', $this->__sum($this->Company->find('all')));
-		$this->log($this->__sum($this->Company->find('all')), LOG_DEBUG);
 	}
 }
 ?>
