@@ -65,6 +65,8 @@ class CompaniesController extends AppController {
 		$this->redirect(array('action' => 'index'));
 	}
 
+	// for $data array each element as $d
+	
 	function __sum($data){
 			$sm = 0;
 			foreach($data as $d){
