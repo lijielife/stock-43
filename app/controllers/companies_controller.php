@@ -13,8 +13,8 @@ class CompaniesController extends AppController {
 	function view($id = null) {
 		if($id != null) {
 			//Set the company data 
-			$comp_dat = $this->Company->findById($id);
 			$this->Company->recursive = 1; 
+			$comp_dat = $this->Company->findById($id);
 			$this->set('company' , $comp_dat);
 			$this->set('sum' , $this->__sum($comp_dat["Invoice"]));
 		} else {
