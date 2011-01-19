@@ -5,6 +5,7 @@
 	<?php
 		echo $this->Form->input('date');
 		echo $this->Form->input('description');
+		echo $this->Form->input('product_id');
 		echo $this->Form->input('company_id');
 		echo $this->Form->input('total');
 	?>
