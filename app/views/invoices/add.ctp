@@ -5,8 +5,8 @@
 	<?php
 		echo $this->Form->input('date');
 		echo $this->Form->input('description');
-		echo $this->Form->input('product');
-		echo $this->Form->input('company');
+		echo $this->Form->input('product_id');
+		echo $this->Form->input('company_id');
 		echo $this->Form->input('total');
 	?>
 	</fieldset>
@@ -18,4 +18,16 @@
 
 		<li><?php echo $this->Html->link(__('List Invoices', true), array('action' => 'index'));?></li>
 	</ul>
+</div>
+
+<div>
+	<pre>
+	   <?php print_r($product); ?>
+	</pre>
+</div>
+
+<div>
+	<pre>
+	   <?php print_r($company); ?>
+	</pre>
 </div>
