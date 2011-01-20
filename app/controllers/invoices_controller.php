@@ -34,9 +34,11 @@ class InvoicesController extends AppController {
 				$this->Session->setFlash(__('The invoice could not be saved. Please, try again.', true));
 			}
 		}
-		$company = $this->Invoice->Company->find('list');
 		$product = $this->Invoice->Product->find('list');
+		$company = $this->Invoice->Company->find('list');
 		$this->set(compact('product', 'company'));
+		$this->log($product, LOG_DEBUG);
+		$this->log($company, LOG_DEBUG);
 	}
 
 	function edit($id = null) {
