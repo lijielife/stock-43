@@ -27,7 +27,7 @@ class InvoicesController extends AppController {
 	function add() {
 		if (!empty($this->data)) {
 			$this->Invoice->create();
-			if ($this->Invoice->save($this->data)) {
+			if ($this->Invoice->saveAll($this->data)) {
 				$this->Session->setFlash(__('The invoice has been saved', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
@@ -37,7 +37,7 @@ class InvoicesController extends AppController {
 		$product = $this->Invoice->Product->find('list');
 		$company = $this->Invoice->Company->find('list');
 		$this->set(compact('product', 'company'));
-		$this->log($this->data, LOG_DEBUG);
+		$this->log($this->Invoice->Product->find('list'), LOG_DEBUG);
 	}
 
 	function edit($id = null) {
