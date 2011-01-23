@@ -37,8 +37,7 @@ class InvoicesController extends AppController {
 		$product = $this->Invoice->Product->find('list');
 		$company = $this->Invoice->Company->find('list');
 		$this->set(compact('product', 'company'));
-		$this->log($product, LOG_DEBUG);
-		$this->log($company, LOG_DEBUG);
+		$this->log($this->data);
 	}
 
 	function edit($id = null) {
