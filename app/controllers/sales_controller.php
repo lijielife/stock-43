@@ -9,11 +9,13 @@ class SalesController extends AppController {
 	}
 
 	function view($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(__('Invalid sale', true));
-			$this->redirect(array('action' => 'index'));
+		if($id != null) {
+			$this->Sale->recursive = 1; 
+			$this->set('sale' , $this->Sale->findById($id));
+			$this->log($this->Sale->findById($id), LOG_DEBUG);
+		} else {
+			
 		}
-		$this->set('sale', $this->Sale->read(null, $id));
 	}
 
 	function add() {
@@ -26,6 +28,10 @@ class SalesController extends AppController {
 				$this->Session->setFlash(__('The sale could not be saved. Please, try again.', true));
 			}
 		}
+		$product = $this->Sale->Product->find('list');
+		$invoice = $this->Sale->Invoice->find('list');
+		$this->set(compact('product', 'invoice'));
+		$this->log($this->Sale->Product->find('list'), LOG_DEBUG);
 	}
 
 	function edit($id = null) {
