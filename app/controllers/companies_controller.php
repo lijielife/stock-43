@@ -17,6 +17,7 @@ class CompaniesController extends AppController {
 			$comp_dat = $this->Company->findById($id);
 			$this->set('company' , $comp_dat);
 			$this->set('sum' , $this->__sum($comp_dat["Invoice"]));
+			$this->log($this->Company->findById($id), LOG_DEBUG);
 		} else {
 			
 		}
@@ -25,7 +26,7 @@ class CompaniesController extends AppController {
 	function add() {
 		if (!empty($this->data)) {
 			$this->Company->create();
-			if ($this->Company->save($this->data)) {
+			if ($this->Company->saveAll($this->data)) {
 				$this->Session->setFlash(__('The company has been saved', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
