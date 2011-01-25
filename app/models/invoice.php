@@ -9,17 +9,7 @@ class Invoice extends AppModel {
 			'fields' => '',
 			'order' => ''
 		)
-	);	
-	var $hasOne = array(
-		'Sale' => array (
-			'className' => 'Sale',
-			'foreignKey' => 'invoice_id',
-			'dependent' => true,
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		)
-	);	
+	);
 	var $hasAndBelongsToMany = array(
         'Product' => array(
               'className' => 'Product',

@@ -12,8 +12,10 @@ class ProductsController extends AppController {
 	
 	function view($id = null) {
 		if($id != null) {
-			$this->Product->recursive = 1; 
-			$this->set('product' , $this->Product->findById($id));
+			$this->Product->recursive = 1;
+			$prdt=$this->Product->findById($id);
+			$this->set('product' , $prdt);
+			$this->set('summ', $this->__stk($prdt['Sale']));
 			$this->log($this->Product->findById($id), LOG_DEBUG);
 		} else {
 			
@@ -61,6 +63,14 @@ class ProductsController extends AppController {
 		}
 		$this->Session->setFlash(__('Product was not deleted', true));
 		$this->redirect(array('action' => 'index'));
+	}
+	
+	function __stk($da){
+		$smm=0;
+		foreach($da as $ta){
+			$smm+=$ta['unit_product'];
+		}		
+		return $smm;		
 	}
 }
 ?>

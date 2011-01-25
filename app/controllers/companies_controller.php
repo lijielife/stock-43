@@ -16,7 +16,7 @@ class CompaniesController extends AppController {
 			$this->Company->recursive = 1; 
 			$comp_dat = $this->Company->findById($id);
 			$this->set('company' , $comp_dat);
-			$this->set('sum' , $this->__sum($comp_dat["Invoice"]));
+			$this->set('sum' , $this->__sum($comp_dat['Invoice']));
 			$this->log($this->Company->findById($id), LOG_DEBUG);
 		} else {
 			

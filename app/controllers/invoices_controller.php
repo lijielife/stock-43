@@ -27,7 +27,6 @@ class InvoicesController extends AppController {
 	function add() {
 		if (!empty($this->data)) {
 			$this->log($this->data, LOG_DEBUG);
-			$this->Invoice->create();
 			if ($this->Invoice->saveAll($this->data)) {
 				$this->Session->setFlash(__('The invoice has been saved', true));
 				$this->redirect(array('action' => 'index'));

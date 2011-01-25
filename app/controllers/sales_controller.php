@@ -29,8 +29,7 @@ class SalesController extends AppController {
 			}
 		}
 		$product = $this->Sale->Product->find('list');
-		$invoice = $this->Sale->Invoice->find('list');
-		$this->set(compact('product', 'invoice'));
+		$this->set(compact('product'));
 		$this->log($this->Sale->Product->find('list'), LOG_DEBUG);
 	}
 

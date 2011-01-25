@@ -4,7 +4,6 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('product_id');?></th>
-			<th><?php echo $this->Paginator->sort('invoice_id');?></th>
 			<th><?php echo $this->Paginator->sort('price');?></th>
 			<th><?php echo $this->Paginator->sort('unit_product');?></th>
 			<th class="actions"><?php __('Actions');?></th>
@@ -20,7 +19,6 @@
 	<tr<?php echo $class;?>>
 		<td><?php echo $sale['Sale']['id']; ?>&nbsp;</td>
 		<td><?php echo $sale['Sale']['product_id']; ?>&nbsp;</td>
-		<td><?php echo $sale['Sale']['invoice_id']; ?>&nbsp;</td>
 		<td><?php echo $sale['Sale']['price']; ?>&nbsp;</td>
 		<td><?php echo $sale['Sale']['unit_product']; ?>&nbsp;</td>
 		<td class="actions">

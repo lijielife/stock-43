@@ -11,11 +11,6 @@
 			<?php echo $sale['Sale']['product_id']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Invoice Id'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $sale['Sale']['invoice_id']; ?>
-			&nbsp;
-		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Price'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $sale['Sale']['price']; ?>
