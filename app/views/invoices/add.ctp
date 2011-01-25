@@ -5,7 +5,7 @@
 	<?php
 		echo $this->Form->input('date');
 		echo $this->Form->input('description');
-		echo $this->Form->input('Product', array('type'=>'select','multiple' => 'checkbox', 'options'=>$product));
+		echo $this->Form->input('Product', array('type'=>'select','multiple' => 'checkbox', 'options'=>$prd));
 		echo $this->Form->input('company_id', array('type'=>'select',  'options'=>$company));
 		echo $this->Form->input('total');
 	?>
